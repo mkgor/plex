@@ -1,5 +1,6 @@
 <?php
 
+//Requiring autoloader file
 require_once('inc/autoloader.php');
 
 /*
@@ -18,8 +19,17 @@ require_once('inc/autoloader.php');
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+/**
+ * Register autoloader
+ */
 spl_autoload_register(array('Autoloader', 'loadClass'));
-
+/**
+ * Defining base path
+ */
 define('BASE_PATH', str_replace("\\", "/", ''));
+/**
+ * Launching app
+ */
 $app = new Source\PlexBootstraper;
+
 

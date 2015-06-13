@@ -18,7 +18,7 @@
  */
 namespace Source\Cache;
 /**
- * Description of CCacher
+ * Description of Cacher
  *
  * @author Depo
  */

@@ -18,7 +18,7 @@
  */
 
 /**
- * Description of СAuthManager
+ * Description of AuthManager
  *
  * @author Gor Mkhitaryan
  */

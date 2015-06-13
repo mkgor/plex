@@ -18,7 +18,7 @@
  */
 
 /**
- * Description of СHttpResponse
+ * Description of HttpResponse
  *
  * @author Gor Mkhitaryan
  */

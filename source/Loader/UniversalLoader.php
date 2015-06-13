@@ -20,7 +20,7 @@
 namespace Source\Loader;
 
 /**
- * Description of CUniversalLoader
+ * Description of UniversalLoader
  *
  * @author Gor Mkhitaryan
  */

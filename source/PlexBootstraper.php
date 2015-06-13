@@ -18,7 +18,7 @@
  */
 namespace Source;
 /**
- * Description of Init
+ * Description of PlexBootstraper
  *
  * @author Gor Mkhitaryan
  */

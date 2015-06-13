@@ -20,7 +20,7 @@
 namespace Source\ServiceManager;
 
 /**
- * Description of СServiceManager
+ * Description of ServiceManager
  *
  * @author Gor Mkhitaryan
  */

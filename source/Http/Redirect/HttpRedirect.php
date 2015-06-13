@@ -18,7 +18,7 @@
  */
 
 /**
- * Description of СHttpRedirect
+ * Description of HttpRedirect
  *
  * @author Gor Mkhitaryan
  */

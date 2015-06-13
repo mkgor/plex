@@ -20,7 +20,7 @@
 namespace Source\Database;
 
 /**
- * Description of СDbConnector
+ * Description of DbConnector
  *
  * @author Gor Mkhitaryan
  */

@@ -18,7 +18,7 @@
  */
 
 /**
- * Description of СInternationalizationManager
+ * Description of InternationalizationManager
  *
  * @author Gor Mkhitaryan
  */

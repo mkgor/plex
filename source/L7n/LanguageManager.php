@@ -18,7 +18,7 @@
  */
 
 /**
- * Description of СLanguageManager
+ * Description of LanguageManager
  *
  * @author Gor Mkhitaryan
  */

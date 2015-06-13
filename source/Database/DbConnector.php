@@ -27,7 +27,7 @@ namespace Source\Database;
 class DbConnector {
 
     /**
-     * Connecting to DB
+     * Connecting to DB 
      * @return \Source\Database\PDOC
      */
     public function __construct()

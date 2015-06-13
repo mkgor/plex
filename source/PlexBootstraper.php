@@ -16,7 +16,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+
 namespace Source;
+
 /**
  * Description of PlexBootstraper
  *
@@ -26,15 +28,22 @@ class PlexBootstraper {
 
     public function __construct()
     {
+
         $serviceManager = new ServiceManager\ServiceManager();
-        
+        /**
+         * Putting objects of classes into the Service manager
+         */
         $serviceManager->set('DatabaseManager', new Database\DbManager);
         $serviceManager->set('Loader', new Loader\UniversalLoader);
         $serviceManager->set('MainConfig', new Config\Main);
-        
+        /**
+         * MVC routing
+         */
         $router = new Routing\URL\Router;
         $eventManager = new EventManager\EventManager;
-        
+        /**
+         * Executing of event which will happen when the application initialised
+         */
         $eventManager->execute('onInit');
     }
 

@@ -23,5 +23,47 @@
  * @author Gor Mkhitaryan
  */
 class HttpResponse {
-    //put your code here
+
+    /**
+     * Setting the HTTP response
+     * @param type $code
+     */
+    public static function response($code = 200)
+    {
+        $ver1 = 'HTTP/1.0';
+        $ver11 = 'HTTP/1.1';
+        /**
+         * @TODO add new codes
+         */
+        switch ($code)
+        {
+            case 200:
+                header($ver1 . ' 200 OK');
+                break;
+            case 404:
+                header($ver1 . ' 404 Not Found');
+                break;
+            case 403:
+                header($ver1 . ' 403 Forbidden');
+                break;
+            case 301:
+                header($ver1 . ' 301 Moved Permanently');
+                break;
+            case 302:
+                header($ver1 . ' 302 Moved Temporarily ');
+                break;
+            case 303:
+                header($ver11 . ' 303 See Other');
+                break;
+            case 307:
+                header($ver11 . '307 Temporary Redirect');
+                break;
+            default:
+                header($ver1 . ' 200 OK');
+                break;
+        }
+
+        return $code;
+    }
+
 }

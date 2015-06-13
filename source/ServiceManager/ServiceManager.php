@@ -58,7 +58,7 @@ class ServiceManager {
         if ($this->exists($name)) {
             return $this->services[$name];
         } else {
-            die("Service ".$name." does not registered");
+            die("Service " . $name . " does not registered");
         }
     }
 

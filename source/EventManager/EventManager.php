@@ -36,7 +36,7 @@ class EventManager {
     {
         if (!empty($msg)) {
             /**
-             * @TODO
+             * @TODO beautiful messages
              */
             echo "<script>alert('" . $msg . "');</script>";
             return true;
@@ -46,6 +46,10 @@ class EventManager {
         }
     }
 
+    /**
+     * Method which used to execute the events
+     * @param type $method
+     */
     public function execute($method)
     {
         switch ($method)
@@ -59,11 +63,34 @@ class EventManager {
         }
     }
 
+    /**
+     * onInit event
+     * @return boolean
+     * @throws Exception
+     */
     public function onInit()
     {
         if (file_exists(BASE_PATH . 'app/events/onInit.php')) {
             if (class_exists('\\App\Events\\OnInit')) {
                 $event = new \App\Events\OnInit;
+            } else {
+                throw new Exception("Event error: undefined event");
+            }
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * onRoute event
+     * @return boolean
+     * @throws Exception
+     */
+    public function onRoute()
+    {
+        if (file_exists(BASE_PATH . 'app/events/onRoute.php')) {
+            if (class_exists('\\App\Events\\OnRoute')) {
+                $event = new \App\Events\OnRoute;
             } else {
                 throw new Exception("Event error: undefined event");
             }

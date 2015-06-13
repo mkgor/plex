@@ -25,32 +25,56 @@ namespace Source\Database;
  * @author Gor Mkhitaryan
  */
 class DbManager implements DbInterface {
+
     /**
      * Contains the object of PDO
      * @var type 
      */
     private $db;
-    
+
+    /**
+     * Connecting to DB
+     */
     public function connect()
     {
         $dbConnector = new DbConnector;
-        
+
         $this->db = $dbConnector;
     }
-    
+
+    /**
+     * Prepared query
+     * @param type $query
+     * @param type $bindParams
+     * @return type
+     */
     public function query($query, $bindParams = null)
     {
-        
+        if (!empty($query)) {
+            $query = $this->db->prepare($query);
+            $query->execute($bindParams);
+
+            return $query;
+        }
     }
 
+    /**
+     * Raw query, without preparing
+     * @param type $query
+     */
     public function raw_query($query)
     {
-        
+        if (!empty($query)) {
+            $this->db->exec($query);
+        }
     }
 
+    /**
+     * Closing db connection
+     */
     public function close()
     {
-     
+        $this->db = null;
     }
 
 }

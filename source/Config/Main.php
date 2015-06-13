@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015 Depo
+ * Copyright (C) 2015 Gor Mkhitaryan
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,13 +22,27 @@ namespace Source\Config;
 /**
  * Description of Main
  *
- * @author Depo
+ * @author Gor Mkhitaryan
  */
 class Main {
+
+    /**
+     * Returns configuration as array
+     * @return type
+     */
     public function getConfig()
     {
         return array(
-            
+            'db' => array(
+                'host' => 'localhost',
+                'current_db' => 'test',
+                'user' => 'root',
+                'password' => '',
+            ),
+            'controller' => array(
+                'default' => 'welcome'
+            ),
         );
     }
+
 }

@@ -23,5 +23,24 @@
  * @author Gor Mkhitaryan
  */
 class HttpRedirect {
-    //put your code here
+
+    /**
+     * Redirect
+     * @param type $location
+     * @param type $time
+     * @throws Exception
+     */
+    public static function redirect($location = null, $time = 0)
+    {
+        if (!$location == null) {
+            if ($time != 0) {
+                header('Refresh: ' . $time . '; url=' . $location);
+            } else {
+                header('Location: ' . $location);
+            }
+        } else {
+            throw new Exception('Http redirect error: empty location');
+        }
+    }
+
 }

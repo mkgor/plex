@@ -25,5 +25,28 @@ namespace Source\Loader;
  * @author Gor Mkhitaryan
  */
 class UniversalLoader {
-    //put your code here
+
+    /**
+     * Returns object of model
+     * 
+     * @param type $model
+     * @return type
+     */
+    public function model($model)
+    {
+        $format = '\\App\\Models\\';
+        if (!empty($model)) {
+            if (class_exists($format . $model)) {
+                return new $format . $model;
+            }
+        }
+    }
+
+    public function view($tpl, array $params)
+    {
+        /**
+         * @TODO
+         */
+    }
+
 }

@@ -19,9 +19,54 @@
 
 /**
  * Description of LanguageManager
- *
+ * Syntax - Source\L7d\LanuageManager::write('TEXT_IDENTIFICATOR');
  * @author Gor Mkhitaryan
  */
 class LanguageManager {
-    //put your code here
+
+    /**
+     * Displays the string
+     * @param type $i11r ( = identificator)
+     * @param type $file
+     */
+    public static function write($i11r, $file = 'lang')
+    {
+        if (!empty($i11r)) {
+            $serviceManager = new \Source\ServiceManager\ServiceManager();
+            $language = $serviceManager->get('MainConfig')->getConfig()['language'];
+
+            $language = parse_ini_file(BASE_PATH . 'app/languages/' . $language . '/' . $file . '.ini');
+
+            echo $language[$i11r];
+        }
+    }
+
+    /**
+     * Returns the string
+     * @param type $i11r ( = identificator)
+     * @return type
+     */
+    public static function get($i11r)
+    {
+        if (!empty($i11r)) {
+            $serviceManager = new \Source\ServiceManager\ServiceManager();
+            $language = $serviceManager->get('MainConfig')->getConfig()['language'];
+
+            $language = parse_ini_file(BASE_PATH . 'app/languages/' . $language . '/' . $file . '.ini');
+
+            return $language[$i11r];
+        }
+    }
+
+    /**
+     * Returns the current language
+     * @return type
+     */
+    public static function getLanuguage()
+    {
+        $serviceManager = new \Source\ServiceManager\ServiceManager();
+
+        return $serviceManager->get('MainConfig')->getConfig()['language'];
+    }
+
 }

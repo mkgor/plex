@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015 Gor Mkhitaryan
+ * Copyright (C) 2015 Depo
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,32 +17,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Source\Http\Redirect;
+namespace App\Events;
 
 /**
- * Description of HttpRedirect
+ * Description of onInit
  *
- * @author Gor Mkhitaryan
+ * @author Depo
  */
-class HttpRedirect {
+class onInit {
 
-    /**
-     * Redirect
-     * @param type $location
-     * @param type $time
-     * @throws Exception
-     */
-    public static function redirect($location = null, $time = 0)
+    public function __construct()
     {
-        if (!$location == null) {
-            if ($time != 0) {
-                header('Refresh: ' . $time . '; url=' . $location);
-            } else {
-                header('Location: ' . $location);
-            }
-        } else {
-            throw new Exception('Http redirect error: empty location');
-        }
+        echo __METHOD__;
     }
 
 }

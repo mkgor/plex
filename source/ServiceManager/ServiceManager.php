@@ -30,7 +30,17 @@ class ServiceManager {
      * Array which contains services
      * @var type 
      */
-    public $services;
+    protected static $services;
+
+    protected function __construct()
+    {
+        
+    }
+
+    protected function __clone()
+    {
+        
+    }
 
     /**
      *  Method which puts objects of services into the array
@@ -38,10 +48,11 @@ class ServiceManager {
      * @param type $object
      * @throws Exception
      */
-    public function set($name, $object)
+    public static function set($name, $object)
     {
+
         if (!empty($name) && !empty($object) && is_object($object)) {
-            $this->services[$name] = $object;
+            self::$services[$name] = $object;
         } else {
             throw new \Exception("Empty service name or its object!");
         }
@@ -52,14 +63,9 @@ class ServiceManager {
      * @param type $name
      * @return type
      */
-    public function get($name)
+    public static function get($name)
     {
-        print_r($this->services);
-        if ($this->exists($name)) {
-            return $this->services[$name];
-        } else {
-            die("Service " . $name . " does not registered");
-        }
+        return (isset(self::$services[$name])) ? self::$services[$name] : null;
     }
 
     /**
@@ -69,7 +75,7 @@ class ServiceManager {
      */
     public function exists($name)
     {
-        return (isset($this->services[$name])) ? true : false;
+        return isset(self::$store[$name]);
     }
 
     /**
@@ -78,7 +84,7 @@ class ServiceManager {
      */
     public function getAll()
     {
-        return $this->services;
+        return self::$services;
     }
 
 }

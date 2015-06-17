@@ -17,6 +17,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+namespace Source\Http\Response;
+
 /**
  * Description of HttpResponse
  *

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015 Gor Mkhitaryan
+ * Copyright (C) 2015 Depo
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,32 +17,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Source\Http\Redirect;
+namespace App\Controllers;
 
-/**
- * Description of HttpRedirect
- *
- * @author Gor Mkhitaryan
- */
-class HttpRedirect {
+use Source\Components\Controller\PlexController;
+use Source\Http\Redirect\HttpRedirect;
 
-    /**
-     * Redirect
-     * @param type $location
-     * @param type $time
-     * @throws Exception
-     */
-    public static function redirect($location = null, $time = 0)
+class Welcome extends PlexController {
+
+    public function actionIndex()
     {
-        if (!$location == null) {
-            if ($time != 0) {
-                header('Refresh: ' . $time . '; url=' . $location);
-            } else {
-                header('Location: ' . $location);
-            }
-        } else {
-            throw new Exception('Http redirect error: empty location');
-        }
+        echo __METHOD__;
     }
 
 }

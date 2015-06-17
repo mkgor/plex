@@ -24,18 +24,18 @@ namespace Source;
  *
  * @author Gor Mkhitaryan
  */
+use Source\ServiceManager\ServiceManager;
+
 class PlexBootstraper {
 
     public function __construct()
     {
-
-        $serviceManager = new ServiceManager\ServiceManager();
         /**
          * Putting objects of classes into the Service manager
          */
-        $serviceManager->set('DatabaseManager', new Database\DbManager);
-        $serviceManager->set('Loader', new Loader\UniversalLoader);
-        $serviceManager->set('MainConfig', new Config\Main);
+        ServiceManager::set('DatabaseManager', new Database\DbManager);
+        ServiceManager::set('Loader', new Loader\UniversalLoader);
+        ServiceManager::set('MainConfig', new Config\Main);
         /**
          * MVC routing
          */
@@ -45,6 +45,7 @@ class PlexBootstraper {
          * Executing of event which will happen when the application initialised
          */
         $eventManager->execute('onInit');
+        $router->route();
     }
 
 }

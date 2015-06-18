@@ -18,6 +18,7 @@
  */
 
 namespace Source\Components\Controller;
+use Source\Loader\UniversalLoader;
 
 /**
  * Description of PlexController
@@ -26,9 +27,11 @@ namespace Source\Components\Controller;
  */
 class PlexController {
 
+    public $load;
+
     public function __construct()
     {
-        
+        $this->load = new UniversalLoader();
     }
 
 }

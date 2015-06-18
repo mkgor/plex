@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Copyright (C) 2015 Depo
+ * Copyright (C) 2015 Gor Mkhitaryan
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,13 +20,19 @@
 namespace App\Controllers;
 
 use Source\Components\Controller\PlexController;
-use Source\Http\Redirect\HttpRedirect;
 
 class Welcome extends PlexController {
 
     public function actionIndex()
     {
-        echo __METHOD__;
+        $benchmark = $this->load->lib('Benchmark');
+        $benchmark->mark();
+        for($i = 0;$i < 1000;$i++)
+        {
+            echo $i.'<br>';
+        }
+        $benchmark->mark();
+        $benchmark->showDebug();
     }
 
 }

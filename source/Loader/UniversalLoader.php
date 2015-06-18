@@ -24,11 +24,12 @@ namespace Source\Loader;
  *
  * @author Gor Mkhitaryan
  */
-class UniversalLoader {
+class UniversalLoader
+{
 
     /**
      * Returns object of model
-     * 
+     *
      * @param type $model
      * @return type
      */
@@ -42,11 +43,33 @@ class UniversalLoader {
         }
     }
 
+    /**
+     * Loads views
+     * @param $tpl
+     * @param array $params
+     */
     public function view($tpl, array $params)
     {
         /**
          * @TODO
          */
+    }
+
+    /**
+     * Returns object of library
+     * @param $name
+     * @return string
+     */
+    public function lib($name)
+    {
+        $format = 'Libraries\\' . $name;
+        if (!empty($name)) {
+            if (class_exists($format)) {
+                return new $format;
+            }
+        } else {
+            throw new \Exception('Loader error: empty library name');
+        }
     }
 
 }

@@ -23,6 +23,7 @@ namespace Source\Routing\URL;
  *
  * @author Gor Mkhitaryan
  */
+use Source\EventManager\EventManager;
 use Source\ServiceManager\ServiceManager;
 use Source\Http\Response\HttpResponse;
 
@@ -62,6 +63,9 @@ class Router {
             HttpResponse::response(404);
             die('File <b>' . $controller . '.php</b> does not exists');
         }
+
+        $eventManager = new EventManager();
+        $eventManager->execute('onRoute');
     }
 
 }
